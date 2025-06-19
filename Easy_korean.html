@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Easy Korean - Learn Korean Simply</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Easy Korean 🌸</h1>
+    <p>Learn Korean the simple, fun, and beautiful way!</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="hangul.html">Learn Hangul</a></li>
+        <li><a href="vocabulary.html">Vocabulary</a></li>
+        <li><a href="grammar.html">Grammar</a></li>
+        <li><a href="dialogue.html">Dialogues</a></li>
+        <li><a href="practice.html">Practice</a></li>
+        <li><a href="contact.html">Feedback</a></li>
+      </ul>
+    </nav>
+    <button id="darkModeToggle" class="dark-toggle">🌙 Toggle Dark Mode</button>
+  </header>
+
+  <main>
+    <section>
+      <h2>Welcome to Easy Korean!</h2>
+      <p>This site helps beginners learn Korean step by step — starting from Hangul, vocabulary, grammar, and real-life conversations.</p>
+
+      <h3>🎧 Sample Word: “Thank you”</h3>
+      <p>
+        감사합니다 (gam-sa-ham-ni-da)
+        <button class="audio-btn" onclick="playAudio('audio1')">▶️ Play</button>
+        <audio id="audio1" src="https://ttsmp3.com/created_mp3/ed3aeea297f1d29204cc0b03f6908a4d.mp3"></audio>
+      </p>
+
+      <h3>💡 Why choose Easy Korean?</h3>
+      <ul>
+        <li>Beginner-friendly lessons</li>
+        <li>Real pronunciation with audio</li>
+        <li>Interactive quizzes</li>
+        <li>Fun and colorful design</li>
+        <li>Dark Mode support</li>
+      </ul>
+
+      <a href="hangul.html" class="start-btn">👉 Start Learning Hangul</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Easy Korean. Made with 💖 for Korean learners.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+/* Reset & base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #fffafc;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  background: linear-gradient(to right, #ff6ba3, #ff9e9e);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  animation: fadeIn 1s ease;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  background: #ffffff22;
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: white;
+  transition: background 0.3s ease, transform 0.2s;
+}
+nav ul li a:hover {
+  background: #ffffff55;
+  transform: scale(1.05);
+}
+
+.dark-toggle {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #fff;
+  color: #ff4b7d;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.dark-toggle:hover {
+  background: #ffe0e0;
+}
+
+/* Main section */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #e03e7b;
+}
+h3 {
+  color: #ff6b81;
+}
+ul {
+  line-height: 1.8;
+  padding-left: 1.5rem;
+}
+
+/* Buttons */
+.audio-btn, .start-btn {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease, transform 0.2s;
+}
+.audio-btn:hover, .start-btn:hover {
+  background-color: #ff85c1;
+  transform: scale(1.05);
+}
+.start-btn {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  background: #ff9eb4;
+  color: #222;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #1b1b1d;
+  color: #eee;
+}
+body.dark-mode header {
+  background: linear-gradient(to right, #712b46, #553f4d);
+}
+body.dark-mode nav ul li a {
+  background: #ffffff33;
+  color: #fff;
+}
+body.dark-mode nav ul li a:hover {
+  background: #ffffff55;
+}
+body.dark-mode .dark-toggle {
+  background: #333;
+  color: #fff;
+}
+body.dark-mode footer {
+  background: #2a2a2a;
+  color: #aaa;
+}
+body.dark-mode .start-btn {
+  background: #b03c7f;
+}
+// Dark mode toggle
+const toggle = document.getElementById("darkModeToggle");
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});
+
+// Play audio
+function playAudio(id) {
+  const audio = document.getElementById(id);
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play();
+  }
+}
